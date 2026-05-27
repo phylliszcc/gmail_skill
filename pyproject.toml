@@ -1,0 +1,20 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "gmail-skill"
+version = "0.1.0"
+requires-python = ">=3.11"
+dependencies = [
+    "google-api-python-client>=2.0",
+    "google-auth-oauthlib>=1.2",
+    "google-auth-httplib2>=0.2",
+    "mcp[cli]>=1.0",
+]
+
+[project.scripts]
+gmail-skill = "gmail_skill.mcp_server:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/gmail_skill"]
